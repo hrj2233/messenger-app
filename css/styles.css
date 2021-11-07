@@ -8,7 +8,9 @@
 
 /* Screens */
 @import './screens/login.css';
-
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'Open Sans', sans-serif;
 }
