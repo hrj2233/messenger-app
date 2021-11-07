@@ -17,23 +17,16 @@
   color: #2e363e;
 }
 
-.nav__notification,
-.nav__notification-small {
-  background-color: tomato;
+.nav__notification {
+  position: absolute;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: 600;
-  position: absolute;
   left: 15px;
   bottom: 15px;
 }
 
-.nav__notification-small {
+.nav__notification--small {
+  position: absolute;
   width: 5px;
   height: 5px;
   left: 30px;
