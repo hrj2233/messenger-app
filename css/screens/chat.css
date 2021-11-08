@@ -1,6 +1,6 @@
 #chat-screen {
   background-color: #abc1d1;
-  height: 11000vh;
+  height: 500vh;
 }
 
 #chat-screen .alt-header,
@@ -20,11 +20,39 @@
   z-index: 1;
 }
 
+@keyframes fadeIn {
+  0% {
+    transform: none;
+    opacity: 0;
+  }
+  1% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
 .main-chat {
   margin-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 0.8s linear;
+}
+
+@keyframes flipTimeStamp {
+  0% {
+    transform: none;
+  }
+  1% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: none;
+  }
 }
 
 .chat__timestamp {
@@ -34,12 +62,36 @@
   font-size: 14px;
   border-radius: 25px;
   margin-bottom: 25px;
+  animation: flipTimeStamp 1s linear;
+}
+
+@keyframes leftFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .message-row {
   width: 100%;
   display: flex;
   margin-bottom: 25px;
+  animation: leftFadeIn 1s linear;
+}
+
+@keyframes imgFadeIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .message-row img {
@@ -47,6 +99,7 @@
   height: 50px;
   border-radius: 50%;
   margin-right: 15px;
+  animation: imgFadeIn 1s linear;
 }
 
 .message__author {
@@ -74,8 +127,20 @@
   font-size: 14px;
 }
 
+@keyframes rightFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .message-row--own {
   justify-content: flex-end;
+  animation: rightFadeIn 1s linear;
 }
 
 .message-row--own .message__bubble {
@@ -101,13 +166,14 @@
   padding: 5px 25px;
   box-sizing: border-box;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .reply .reply__column:first-child {
-  width: 5%;
+  width: 10%;
 }
 .reply .reply__column:last-child {
-  width: 95%;
+  width: 90%;
   position: relative;
 }
 
@@ -121,6 +187,7 @@
   border: var(--main-border);
   border-radius: 25px;
   box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 .reply__column:last-child > i,
@@ -149,4 +216,25 @@
 .reply__column button:focus,
 .reply__column button:active {
   outline: none;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 95vw;
+  transform: translateX(-14%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
 }

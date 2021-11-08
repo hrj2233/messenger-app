@@ -1,10 +1,17 @@
 .settings__setting {
   padding: 20px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 20px;
+  font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 0.3s ease-in-out;
+}
+
+.settings__setting:hover {
+  transform: scale(1.05);
 }
 
 .settings__setting i {
